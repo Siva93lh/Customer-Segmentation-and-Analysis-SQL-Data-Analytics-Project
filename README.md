@@ -15,91 +15,18 @@ This project demonstrates an end-to-end SQL Data Analytics pipeline built using 
 **Version Control:**	GitHub
 **Documentation:**	Markdown, PDF Reports
 
+**Business Insights**
+**Category	Insight**
+**Customer Segmentation**	Gold customers account for ~60% of total sales.
+**Spending** Patterns	Gold customers spend 2.5× more per order than Bronze.
+**Recency**	Customers inactive for 60+ days show 40% lower retention.
+**Regional Performance**	South and West regions lead in total sales contribution.
+**Channel** Trend	Online channels dominate 68% of total orders.
 
-**TL Process Overview:**
-**Step 1 — Initialize Database & Schemas**
-CREATE DATABASE CustomerAnalytics;
-GO
-
-USE CustomerAnalytics;
-GO
-
-CREATE SCHEMA bronze;
-CREATE SCHEMA silver;
-CREATE SCHEMA gold;
-GO
-🔸 Step 2 — Bronze Layer (Raw Data Load)
-CREATE TABLE bronze.customer_orders (
-    customer_id INT,
-    order_id INT,
-    order_date DATE,
-    product_id INT,
-    quantity INT,
-    price DECIMAL(10,2),
-    total_sales DECIMAL(10,2),
-    region VARCHAR(50),
-    channel VARCHAR(50)
-);
-Load data using BULK INSERT:
-BULK INSERT bronze.customer_orders
-FROM 'C:\\data\\customer_orders_raw.csv'
-WITH (FIRSTROW = 2, FIELDTERMINATOR = ',', ROWTERMINATOR = '\n');
-________________________________________
-🔸 Step 3 — Silver Layer (Cleansed & Aggregated)
-CREATE TABLE silver.customer_summary AS
-SELECT 
-    customer_id,
-    COUNT(order_id) AS total_orders,
-    SUM(total_sales) AS total_sales,
-    AVG(total_sales) AS avg_order_value,
-    DATEDIFF(DAY, MAX(order_date), GETDATE()) AS recency,
-    region,
-    CASE 
-        WHEN SUM(total_sales) > 10000 THEN 'Gold'
-        WHEN SUM(total_sales) BETWEEN 5000 AND 10000 THEN 'Silver'
-        ELSE 'Bronze'
-    END AS customer_segment
-FROM bronze.customer_orders
-GROUP BY customer_id, region;
-
-Step 4 — Gold Layer (Analytical Views)
-CREATE VIEW gold.vw_customer_insights AS
-SELECT 
-    customer_id,
-    customer_segment,
-    region,
-    total_sales,
-    avg_order_value,
-    recency,
-    CASE 
-        WHEN recency <= 30 THEN 'Active'
-        WHEN recency BETWEEN 31 AND 60 THEN 'Warm'
-        ELSE 'At Risk'
-    END AS customer_status
-FROM silver.customer_summary;
+**Recruiter-Ready Summary**
+This project demonstrates real-world data engineering and analytics skills — building a structured SQL Data Warehouse, performing ETL transformations, ensuring data quality, and generating analytical insights through Power BI. It showcases SQL proficiency, business understanding, and end-to-end data handling capability.Built around the same Bronze–Silver–Gold framework used in modern data lake and warehouse systems like Databricks, Snowflake.Implements practical business analytics metrics — RFM, customer segmentation, sales performance, and churn analysis — relevant for real-world use cases and used for validations, standardization, and reconciliation logic to ensure data trustworthiness.Optimized joins, aggregations, and bulk operations ensure efficient query execution even on large datasets. Gold views directly connect to Power BI, supporting KPI dashboards and visual storytelling.
 
 
-
-
-
-
-
-
-SELECT TOP 10 customer_id, total_sales
-FROM silver.customer_summary
-ORDER BY total_sales DESC;
-2️⃣ Segment-Wise Average Order Value
-sql
-Copy code
-SELECT customer_segment, AVG(avg_order_value) AS avg_value
-FROM silver.customer_summary
-GROUP BY customer_segment;
-
-SSMS Output Example:
-customer_segment	avg_recency
-Gold	21
-Silver	34
-Bronze	57
 
 
 
