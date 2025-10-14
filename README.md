@@ -1,0 +1,2 @@
+# Customer-Segmentation-and-Analysis-SQL-Data-Analytics-Project
+This project demonstrates an end-to-end SQL Data Analytics pipeline built using Microsoft SQL Server, designed to analyze and segment customers based on their purchasing behavior. It follows a Data Warehouse architecture (Bronze → Silver → Gold) and integrates raw transactional data, cleaned datasets, and analytical SQL scripts to generate business
