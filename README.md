@@ -1,6 +1,9 @@
 # Customer-Segmentation-and-Analysis-SQL-Data-Analytics-Project
 This project demonstrates an end-to-end SQL Data Analytics pipeline built using Microsoft SQL Server, designed to analyze and segment customers based on their purchasing behavior. It follows a Data Warehouse architecture Bronze → Silver → Gold and integrates raw transactional data, cleaned datasets, and analytical SQL scripts to generate business business insights such as customer segmentation, sales performance, and regional profitability.
 
+<img width="940" height="368" alt="image" src="https://github.com/user-attachments/assets/ff019971-baed-41c8-b755-dd6d0b1d0eb0" />
+
+
 **Data Warehouse Architecture**
 **Layer	Purpose	Description**
 **Bronze Layer:**	Data Ingestion	Stores raw customer and transaction data directly from CSV sources.
