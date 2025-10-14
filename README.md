@@ -26,8 +26,10 @@ This project demonstrates an end-to-end SQL Data Analytics pipeline built using 
 **Regional Performance**	South and West regions lead in total sales contribution.
 **Channel** Trend	Online channels dominate 68% of total orders.
 
-**Recruiter-Ready Summary**
-This project demonstrates real-world data engineering and analytics skills — building a structured SQL Data Warehouse, performing ETL transformations, ensuring data quality, and generating analytical insights through Power BI. It showcases SQL proficiency, business understanding, and end-to-end data handling capability.Built around the same Bronze–Silver–Gold framework used in modern data lake and warehouse systems like Databricks, Snowflake.Implements practical business analytics metrics — RFM, customer segmentation, sales performance, and churn analysis — relevant for real-world use cases and used for validations, standardization, and reconciliation logic to ensure data trustworthiness.Optimized joins, aggregations, and bulk operations ensure efficient query execution even on large datasets. Gold views directly connect to Power BI, supporting KPI dashboards and visual storytelling.
+**Project Summary**
+This project demonstrates real-world data engineering and analytics skills building a structured SQL Data Warehouse, performing ETL transformations, ensuring data quality, and generating analytical insights through Power BI. It showcases SQL proficiency, business understanding, and end-to-end data handling capability.Built around the same Bronze–Silver–Gold framework used in modern data lake and warehouse systems like Databricks, Snowflake.Implements practical business analytics metrics  such as RFM, customer segmentation, sales performance, and churn analysis  relevant for real-world use cases and used for validations, standardization, and reconciliation logic to ensure data trustworthiness.Optimized joins, aggregations, and bulk operations ensure efficient query execution even on large datasets. Gold views directly connect to Power BI, supporting KPI dashboards and visual storytelling.
+
+
 
 
 
